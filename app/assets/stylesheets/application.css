@@ -39,6 +39,10 @@ a:hover {
   border-radius: 50px;
 }
 
+.left-rounded {
+  border-radius: 50px 0px 0px 50px;
+}
+
 .right-rounded {
   border-radius: 0px 50px 50px 0px;
 }
