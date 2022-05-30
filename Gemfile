@@ -10,7 +10,7 @@ gem "rails", "~> 7.0.3"
 gem "sprockets-rails"
 
 # Use pg as the database for Active Record
-gem "pg", "~> 1.1"
+gem "pg"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -73,6 +73,15 @@ end
 
 gem 'devise'
 gem "ransack", "~> 3.0"
-gem "aws-sdk-s3", require: false
+gem "aws-sdk"
 
 gem "noticed", "~> 1.5"
+
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-passenger'
+gem 'capistrano-rbenv'
+
+gem 'net-ssh', '7.0.0.beta1'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
