@@ -1,26 +1,33 @@
-<p style="color: green"><%= notice %></p>
+<body class="bg-light">
+  <header>
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/alerts' %>
+  </header>
+  <main>
 
-<div class="container">
-  <div class="box-rounded text-center">
+    <div class="container">
+      <div class="box-rounded text-center">
 
-    <div class="btn-group mb-5">
-      <button class="btn bg-blue fs-6 py-3 px-5 btn-rounded"><strong> assets </strong></button>
-      <a href="<%= collections_path %>"><button class="btn bg-mint fs-6 py-3 px-5 right-rounded"><strong> collections </strong></button></a>
-    </div>
-    <br/>
-
-    <div class="mb-5">
-      <%= render 'search/form' %>
-    </div>
-
-    <div class="upload-gallery justify-content-around mx-auto">
-      <% @uploads.shuffle.each do |upload| %>
-        <div id="uploads">
-          <%= render upload %>
+        <div class="btn-group mb-5">
+          <button class="btn bg-blue fs-6 py-3 px-5 btn-rounded"><strong> assets </strong></button>
+          <a href="<%= collections_path %>"><button class="btn bg-mint fs-6 py-3 px-5 right-rounded"><strong> collections </strong></button></a>
         </div>
-      <% end %>
+        <br/>
+
+        <div class="mb-5">
+          <%= render 'search/form' %>
+        </div>
+
+        <div class="upload-gallery justify-content-around mx-auto">
+          <% @uploads.shuffle.each do |upload| %>
+            <div id="uploads">
+              <%= render upload %>
+            </div>
+          <% end %>
+        </div>
+        
+      </div>
     </div>
-    
-  </div>
-</div>
+  </main>
+</body>
 
