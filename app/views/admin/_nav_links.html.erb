@@ -1,7 +1,5 @@
 <div class="container text-center">
-  <p>
-    <%= link_to "admin", admin_path %><%= " > #{params[:action]}" unless params[:action].eql?("index") %>
-  </p>
+ 
   <div class="btn-group">
     <%= render "admin/link", resource: Upload %>
     <%= render "admin/link", resource: User %>

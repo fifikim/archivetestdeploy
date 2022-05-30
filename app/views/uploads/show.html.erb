@@ -1,200 +1,209 @@
-<div class="container">
-  <div class="text-center box-rounded border-fill bg-white mt-5 p-5">
-    <p style="color: green"><%= notice %></p>
-    
-    <div class="row d-flex justify-content-between mx-auto">
+<body class="bg-light">
+  <header>
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/alerts' %>
+  </header>
+  <main>
 
-      <!-- left column: asset/user info -->
-      <div class="col-7">
-        <div class="text-start">
-          <%= button_to "back", :back, method: :get, class: "btn btn-outline-primary px-3" %>
-        </div>
+    <div class="container">
+      <div class="text-center box-rounded border-fill bg-white mt-5 p-5">
+        <p style="color: green"><%= notice %></p>
         
-        <!-- viewer -->
-        <div class="my-3 px-0 viewer-img">
-          <!-- file type -->
-          <% if @upload.file.attached? %>
-            <% type = @upload.file.filename.extension.upcase %>
-          <% elsif @upload.thumbnail.attached? %>
-            <% type = @upload.thumbnail.filename.extension.upcase %>
-          <% else %>
-            <% type = 'JPG' %>
-          <% end %>
+        <div class="row d-flex justify-content-between mx-auto">
 
-          <!-- render model viewer if file is glb/gltf -->
-          <% if ['GLB', 'GLTF'].include? type %>
-            <%= render 'uploads/3d_viewer', upload: @upload, class: "viewer-img" %>
-          <!-- to do: elsif file is mp4 -->
-          <% elsif type == 'MP4' %>
-            to do: mp4 video player here
-          <!-- else file is jpg/png/gif -->
-          <% elsif ['JPG', 'JPEG', 'GIF', 'PNG'].include? type %>
-            <img src="<%= (url_for(@upload.thumbnail)) %>" class="viewer-img">
-          <% end %>
-
-        </div>
-
-        <!-- basic information -->
-        <section>
-          <h3 class="text-start mb-0"><%= @upload.name %></h3>
-
-          <!-- object format type -->
-  
-          <p class="text-start mb-0 text-secondary">
-          <% if ['GLB', 'FBX', 'GLTF'].include? type %>
-            <%= type %> Model
-          <% elsif type == 'MP4' %>
-            <%= type %> Video
-          <% elsif ['JPG', 'GIF', 'JPEG', 'PNG'].include? type %>
-            <%= type %> Image
-          <% else %>
-            unknown file type
-          <% end %>
-          </p>
-          
-          <!-- user info -->
-          <div class="d-flex flex-wrap justify-content-between align-items-end">
-            <div class="d-flex flex-wrap justify-content-start align-items-end">
-              <div>
-                <a href="<%= user_path(@upload.user) %>">
-                  <% if @upload.user.avatar.attached? %>
-                    <img src="<%= (url_for(@upload.user.avatar)) %>" class="avatar-med">
-                  <% else %>
-                    <%= image_tag "avatar.png", class: "avatar-med" %>
-                  <% end %>
-                </a>
-              </div>
-              <div class="px-3 mb-0">
-                <p class="mb-0"><%= link_to @upload.user.username, user_path(@upload.user) %></p>
-              </div>
+          <!-- left column: asset/user info -->
+          <div class="col-7">
+            <div class="text-start">
+              <%= button_to "back", :back, method: :get, class: "btn btn-outline-primary px-3" %>
             </div>
-
-            <!-- icon group -->
-            <div class="d-flex justify-content-end">
-              <div>
-                <button class="btn btn-sm mt-4 ms-2 px-3" disabled><i class="bi bi-cloud-download cloud-color"></i> <%= @upload.views %></button>
-              </div>
-              <div>
-                <button class="btn btn-sm mt-4 ms-2 px-3" disabled><i class="bi bi-eye-fill eye-color"></i> <%= @upload.views %></button>
-              </div>
-              <div>
-                <% liked = @upload.likes.find { |like| like.user_id == current_user.id } %>
-                <% if !liked %>
-                  <%= button_to raw("<i class=\"bi bi-heart-fill\"></i> #{@upload.likes.count}"), upload_likes_path(@upload), method: :post, class: "btn btn-sm btn-outline-danger mt-4 ms-2 px-3" %>
-                <% else %>
-                  <%= button_to raw("<i class=\"bi bi-heart-fill\"></i> #{@upload.likes.count}"), upload_like_path(@upload, liked), method: :delete, class: "btn btn-sm btn-outline-danger mt-4 ms-2 px-3" %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-
-          <!-- download, save to collection, & report -->
-          <div class="d-flex justify-content-between align-items-end">
-            <div class="d-flex justify-content-start align-items-end"> 
+            
+            <!-- viewer -->
+            <div class="my-3 px-0 viewer-img">
+              <!-- file type -->
               <% if @upload.file.attached? %>
-                <% filesize = (@upload.file.byte_size / 1000000) %>
+                <% type = @upload.file.filename.extension.upcase %>
               <% elsif @upload.thumbnail.attached? %>
-                <% filesize = (@upload.thumbnail.byte_size / 1000000) %>
+                <% type = @upload.thumbnail.filename.extension.upcase %>
               <% else %>
-                <% filesize = 0 %>
+                <% type = 'JPG' %>
               <% end %>
 
-              <a href="#" class="text-start"><p class="mb-0 a-gray"><i class="bi bi-cloud-download cloud-color me-2"></i> <%= link_to 'Download', @upload.file, download: '' %> (<%= filesize %>mb)</p></a>
+              <!-- render model viewer if file is glb/gltf -->
+              <% if ['GLB', 'GLTF'].include? type %>
+                <%= render 'uploads/3d_viewer', upload: @upload, class: "viewer-img" %>
+              <!-- to do: elsif file is mp4 -->
+              <% elsif type == 'MP4' %>
+                to do: mp4 video player here
+              <!-- else file is jpg/png/gif -->
+              <% elsif ['JPG', 'JPEG', 'GIF', 'PNG'].include? type %>
+                <img src="<%= (url_for(@upload.thumbnail)) %>" class="viewer-img">
+              <% end %>
+
             </div>
-            <div class="d-flex justify-content-start align-items-end my-1">
-              <a href="#" class="text-start"><p class="mb-0 a-gray"><i class="bi bi-folder-plus me-2 text-secondary"></i> add to collection</p></a>
-            </div>
-            <div class="d-flex justify-content-end align-items-end">
-              <a href="#" class="text-end"><p class="mb-0 a-gray"><i class="bi bi-flag-fill me-2 text-secondary"></i> report</p></a>
-            </div>
-          </div>
-          <hr class="mt-2"/>
-        </section>
 
-        <!-- detailed information -->
-        <section class="text-start mx-auto">
-          
-          <!-- description -->
-          <div>
-            <p><%= @upload.description %> 
-          </div>
+            <!-- basic information -->
+            <section>
+              <h3 class="text-start mb-0"><%= @upload.name %></h3>
 
-          <!-- license info -->
-          <div>
-            <p class="text-secondary mb-0">license: ffftkkk <a href="#" class="a-gray">(learn more)</a></p>
-          </div>
+              <!-- object format type -->
+      
+              <p class="text-start mb-0 text-secondary">
+              <% if ['GLB', 'FBX', 'GLTF'].include? type %>
+                <%= type %> Model
+              <% elsif type == 'MP4' %>
+                <%= type %> Video
+              <% elsif ['JPG', 'GIF', 'JPEG', 'PNG'].include? type %>
+                <%= type %> Image
+              <% else %>
+                unknown file type
+              <% end %>
+              </p>
+              
+              <!-- user info -->
+              <div class="d-flex flex-wrap justify-content-between align-items-end">
+                <div class="d-flex flex-wrap justify-content-start align-items-end">
+                  <div>
+                    <a href="<%= user_path(@upload.user) %>">
+                      <% if @upload.user.avatar.attached? %>
+                        <img src="<%= (url_for(@upload.user.avatar)) %>" class="avatar-med">
+                      <% else %>
+                        <%= image_tag "avatar.png", class: "avatar-med" %>
+                      <% end %>
+                    </a>
+                  </div>
+                  <div class="px-3 mb-0">
+                    <p class="mb-0"><%= link_to @upload.user.username, user_path(@upload.user) %></p>
+                  </div>
+                </div>
 
-          <!-- upload date -->
-          <div>
-            <p class="text-secondary mb-0"><i class="bi bi-clock pe-3"></i>uploaded <%= time_ago_in_words(@upload.created_at) %> ago</p>
-          </div>
-
-          <!-- categories -->
-          <div class="d-flex py-1">
-            <i class="bi bi-archive pe-2 mb-0 text-secondary"></i>
-            <button type="button" class="btn btn-sm btn-outline-primary mx-2 px-3">collection 1</button>
-            <button type="button" class="btn btn-sm btn-outline-primary mx-2 px-3">collection 2</button>
-          </div>
-          
-
-          <!-- tags -->
-          <div class="d-flex align-items-middle py-0">
-            <i class="bi bi-tags py-0 pe-1 mb-0 text-secondary"></i>
-            <% @upload.tags.each do |tag| %>
-              <button type="button" class="btn btn-sm btn-outline-primary mx-2 px-3"><%= link_to tag.name, tag_path(tag) %></button>
-            <% end %>
-          </div>
-
-          <!-- users who liked this -->
-          <div class="d-flex align-items-middle py-0 mb-0">
-              <i class="bi bi-bookmark-heart pe-3 mb-0 text-secondary"></i>
-              <!-- avatars -->
-                <a href="<%= user_path(1) %>">
-                <%= image_tag "avatar.png", class: "avatar-liked me-2" %>
-
-              <!-- usernames -->
-              <div class= "d-flex align-items-end">
-                <%= link_to "username", user_path(1), class: "mb-0 pe-1" %>liked this
+                <!-- icon group -->
+                <div class="d-flex justify-content-end">
+                  <div>
+                    <button class="btn btn-sm mt-4 ms-2 px-3" disabled><i class="bi bi-cloud-download cloud-color"></i> <%= @upload.views %></button>
+                  </div>
+                  <div>
+                    <button class="btn btn-sm mt-4 ms-2 px-3" disabled><i class="bi bi-eye-fill eye-color"></i> <%= @upload.views %></button>
+                  </div>
+                  <div>
+                    <% liked = @upload.likes.find { |like| like.user_id == current_user.id } %>
+                    <% if !liked %>
+                      <%= button_to raw("<i class=\"bi bi-heart-fill\"></i> #{@upload.likes.count}"), upload_likes_path(@upload), method: :post, class: "btn btn-sm btn-outline-danger mt-4 ms-2 px-3" %>
+                    <% else %>
+                      <%= button_to raw("<i class=\"bi bi-heart-fill\"></i> #{@upload.likes.count}"), upload_like_path(@upload, liked), method: :delete, class: "btn btn-sm btn-outline-danger mt-4 ms-2 px-3" %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
-          </div>
 
-        </section>
+              <!-- download, save to collection, & report -->
+              <div class="d-flex justify-content-between align-items-end">
+                <div class="d-flex justify-content-start align-items-end"> 
+                  <% if @upload.file.attached? %>
+                    <% filesize = (@upload.file.byte_size / 1000000) %>
+                  <% elsif @upload.thumbnail.attached? %>
+                    <% filesize = (@upload.thumbnail.byte_size / 1000000) %>
+                  <% else %>
+                    <% filesize = 0 %>
+                  <% end %>
 
-        
-        <!-- to do: delete in production -->
-        <div class="mt-5 text-center">
-          <p class="mb-0">buttons visible in development mode only:</p>
-          <div class="btn-group justify-contents-center py-3">
-            <div><%= button_to "edit", edit_upload_path(@upload), method: :get, class: "btn btn-outline-dark px-3" %></div>
-            <div><%= button_to "delete", @upload, method: :delete, class: "btn btn-outline-dark px-3" %></div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- right sidebar: links -->
-      <div class="col-4 hide-mobile">
-        <div class="text-start p-4 mb-4">
-          <h5 class="text-start"><strong>in collections</strong></h5>
-          <a href=""><p>image/link: collection 1</p></a>
-          <a href=""><p>image/link: collection 2</p></a>
-          <a href=""><p>image/link: collection 3</p></a>
-        </div>
-        <div class="mt-2">
-          <h5 class="text-start mt-2 px-4"><strong>more by <%= @upload.user.username %></strong></h5>
-          <div class="upload-gallery justify-content-around mx-auto">
-            <% Upload.where(user_id: @upload.user).limit(3).each do |upload| %>
-              <div id="uploads">
-                <%= render 'uploads/upload_horizontal', upload: upload %>
+                  <a href="#" class="text-start"><p class="mb-0 a-gray"><i class="bi bi-cloud-download cloud-color me-2"></i> <%= link_to 'Download', @upload.file, download: '' %> (<%= filesize %>mb)</p></a>
+                </div>
+                <div class="d-flex justify-content-start align-items-end my-1">
+                  <a href="#" class="text-start"><p class="mb-0 a-gray"><i class="bi bi-folder-plus me-2 text-secondary"></i> add to collection</p></a>
+                </div>
+                <div class="d-flex justify-content-end align-items-end">
+                  <a href="#" class="text-end"><p class="mb-0 a-gray"><i class="bi bi-flag-fill me-2 text-secondary"></i> report</p></a>
+                </div>
               </div>
-            <% end %>
+              <hr class="mt-2"/>
+            </section>
+
+            <!-- detailed information -->
+            <section class="text-start mx-auto">
+              
+              <!-- description -->
+              <div>
+                <p><%= @upload.description %> 
+              </div>
+
+              <!-- license info -->
+              <div>
+                <p class="text-secondary mb-0">license: ffftkkk <a href="#" class="a-gray">(learn more)</a></p>
+              </div>
+
+              <!-- upload date -->
+              <div>
+                <p class="text-secondary mb-0"><i class="bi bi-clock pe-3"></i>uploaded <%= time_ago_in_words(@upload.created_at) %> ago</p>
+              </div>
+
+              <!-- categories -->
+              <div class="d-flex py-1">
+                <i class="bi bi-archive pe-2 mb-0 text-secondary"></i>
+                <button type="button" class="btn btn-sm btn-outline-primary mx-2 px-3">collection 1</button>
+                <button type="button" class="btn btn-sm btn-outline-primary mx-2 px-3">collection 2</button>
+              </div>
+              
+
+              <!-- tags -->
+              <div class="d-flex align-items-middle py-0">
+                <i class="bi bi-tags py-0 pe-1 mb-0 text-secondary"></i>
+                <% @upload.tags.each do |tag| %>
+                  <button type="button" class="btn btn-sm btn-outline-primary mx-2 px-3"><%= link_to tag.name, tag_path(tag) %></button>
+                <% end %>
+              </div>
+
+              <!-- users who liked this -->
+              <div class="d-flex align-items-middle py-0 mb-0">
+                  <i class="bi bi-bookmark-heart pe-3 mb-0 text-secondary"></i>
+                  <!-- avatars -->
+                    <a href="<%= user_path(1) %>">
+                    <%= image_tag "avatar.png", class: "avatar-liked me-2" %>
+
+                  <!-- usernames -->
+                  <div class= "d-flex align-items-end">
+                    <%= link_to "username", user_path(1), class: "mb-0 pe-1" %>liked this
+                  </div>
+              </div>
+
+            </section>
+
+            
+            <!-- to do: delete in production -->
+            <div class="mt-5 text-center">
+              <p class="mb-0">buttons visible in development mode only:</p>
+              <div class="btn-group justify-contents-center py-3">
+                <div><%= button_to "edit", edit_upload_path(@upload), method: :get, class: "btn btn-outline-dark px-3" %></div>
+                <div><%= button_to "delete", @upload, method: :delete, class: "btn btn-outline-dark px-3" %></div>
+              </div>
+            </div>
+
           </div>
-          <a href="<%= user_path(@upload.user) %>">
-            <p class="my-3"><strong>view all by <%= @upload.user.username %></strong></p>
-          </a>
+
+          <!-- right sidebar: links -->
+          <div class="col-4 hide-mobile">
+            <div class="text-start p-4 mb-4">
+              <h5 class="text-start"><strong>in collections</strong></h5>
+              <a href=""><p>image/link: collection 1</p></a>
+              <a href=""><p>image/link: collection 2</p></a>
+              <a href=""><p>image/link: collection 3</p></a>
+            </div>
+            <div class="mt-2">
+              <h5 class="text-start mt-2 px-4"><strong>more by <%= @upload.user.username %></strong></h5>
+              <div class="upload-gallery justify-content-around mx-auto">
+                <% Upload.where(user_id: @upload.user).limit(3).each do |upload| %>
+                  <div id="uploads">
+                    <%= render 'uploads/upload_horizontal', upload: upload %>
+                  </div>
+                <% end %>
+              </div>
+              <a href="<%= user_path(@upload.user) %>">
+                <p class="my-3"><strong>view all by <%= @upload.user.username %></strong></p>
+              </a>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
-
-  </div>
-</div>
+  </main>
+</body>

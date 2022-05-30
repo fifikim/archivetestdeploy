@@ -1,19 +1,28 @@
-<div class="container text-center">
-  <span class="cripping-header sub-header">manage assets</span>
-  <span class="cripping-header2 sub-header">manage assets</span>
-  <div class="text-center mt-5 p-5 box-rounded border-fill bg-white">
-    <%= render 'search/form' %>
+<body class="bg-light">
+  <header>
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/alerts' %>
+  </header>
+  <main>
 
-    <div class="upload-gallery justify-content-around my-5 mx-auto">
-      <% @user_uploads.each do |upload| %>
-        <div>
-          <%= render 'uploads/upload_manage', upload: upload %>
+    <div class="container text-center">
+      <span class="cripping-header sub-header">manage assets</span>
+      <span class="cripping-header2 sub-header">manage assets</span>
+      <div class="text-center mt-5 p-5 box-rounded border-fill bg-white">
+        <%= render 'search/form' %>
+
+        <div class="upload-gallery justify-content-around my-5 mx-auto">
+          <% @user_uploads.each do |upload| %>
+            <div>
+              <%= render 'uploads/upload_manage', upload: upload %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+        
+      </div>
     </div>
-    
-  </div>
-</div>
+  </main>
+</body>
 
 
 
