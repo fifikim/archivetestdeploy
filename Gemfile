@@ -77,7 +77,11 @@ gem "aws-sdk"
 
 gem "noticed", "~> 1.5"
 
-gem 'capistrano', '~> 3.11'
-gem 'capistrano-rails', '~> 1.4'
-gem 'capistrano-passenger', '~> 0.2.0'
-gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-passenger'
+gem 'capistrano-rbenv'
+
+gem 'net-ssh', '7.0.0.beta1'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'

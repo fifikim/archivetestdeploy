@@ -1,12 +1,14 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.17.0"
 
+set :branch, 'deploy'
+
 set :application, "archivetestdeploy"
 set :repo_url, "https://github.com/fifikim/archivetestdeploy.git"
 
 # Deploy to the user's home directory
 set :deploy_to, "/home/deploy/#{fetch :application}"
-
+set :rbenv_prefix, '/usr/bin/rbenv exec'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
 
 # Only keep the last 5 releases to save disk space
