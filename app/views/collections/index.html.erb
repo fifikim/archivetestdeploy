@@ -1,21 +1,31 @@
-<p style="color: green"><%= notice %></p>
-<div class="container">
-  <div class="box-rounded text-center">
+<body class="bg-light">
+  <header>
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/alerts' %>
+  </header>
+  <main>
 
-    <div class="btn-group mb-5">
-      <a href="<%= archive_path %>"><button class="btn bg-mint left-rounded fs-6 py-3 px-5"><strong> assets </strong></button></a>
-      <button class="btn bg-blue fs-6 py-3 px-5 btn-rounded"><strong> collections </strong></button>
-    </div>
-    <br/>
-    <%= render 'search/form' %>
+    <p style="color: green"><%= notice %></p>
+    <div class="container">
+      <div class="box-rounded text-center">
 
-    <div class="row d-flex justify-content-between mx-auto">
-      <% @collections.each do |collection| %>
-        <div id="collections">
-          <%= render collection %>
+        <div class="btn-group mb-5">
+          <a href="<%= archive_path %>"><button class="btn bg-mint left-rounded fs-6 py-3 px-5"><strong> assets </strong></button></a>
+          <button class="btn bg-blue fs-6 py-3 px-5 btn-rounded"><strong> collections </strong></button>
         </div>
-      <% end %>
-    </div>
+        <br/>
+        <%= render 'search/form' %>
 
-  </div>
-</div>
+        <div class="row d-flex justify-content-between mx-auto">
+          <% @collections.each do |collection| %>
+            <div id="collections">
+              <%= render collection %>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  
+  </main>
+</body>

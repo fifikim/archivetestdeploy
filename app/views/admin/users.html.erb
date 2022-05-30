@@ -1,2 +1,18 @@
-<h1>Admin#users</h1>
-<p>Find me in app/views/admin/users.html.erb</p>
+<body class="bg-light">
+  <header>
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/alerts' %>
+  </header>
+  <main>
+
+    <div class="container text-center">
+      <span class="cripping-header sub-header">admin panel</span>
+      <span class="cripping-header2 sub-header">admin panel</span>
+
+      <div class="text-center box-med box-rounded border-fill bg-white mt-5 p-5">
+        <%= render 'admin/nav_links' %>
+          <p>showing users</p>
+      </div>
+    </div>
+  </main>
+</body>
