@@ -1,8 +1,18 @@
-<div class="container text-center">
-  <span class="cripping-header sub-header">edit asset</span>
-  <span class="cripping-header2 sub-header">edit asset</span>
+<body class="bg-light">
+  <header>
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/alerts' %>
+  </header>
+  <main>
 
-  <div class="text-center box-med box-rounded border-fill mt-5 p-5">
-    <%= render "form", upload: @upload %>
+  <div class="container text-center">
+    <span class="cripping-header sub-header">edit asset</span>
+    <span class="cripping-header2 sub-header">edit asset</span>
+
+    <div class="text-center box-med box-rounded border-fill mt-5 p-5">
+      <%= render "form", upload: @upload %>
+    </div>
   </div>
-</div>
+  </main>
+  <footer class="footer">©2022 CRIPPING_CG</footer>
+</body>

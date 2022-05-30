@@ -1,3 +1,8 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
 .bg-light {
   background-image: url("layout/CCG_background_light_bottom.jpg");
   background-repeat: repeat-y;
@@ -14,6 +19,10 @@
 
 body {
   font-family: 'Anek Latin', sans-serif;
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
 }
 
 a{
@@ -145,8 +154,12 @@ a:hover {
 }
 
 .avatar-mini {
-  height: 2.5rem;
-  width: 2.5rem;
+  border-color: rgba(57, 0, 255);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
 }
 
 .avatar-med {
@@ -174,6 +187,17 @@ a:hover {
 }
 
 .cloud-color {
+  color: rgba(57, 0, 255);
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: rgb(162, 255, 230);
+  font-weight: bold;
+  text-align: center;
   color: rgba(57, 0, 255);
 }
 
@@ -244,6 +268,10 @@ model-viewer {
   display: none;
 }
 
+.banner-logo {
+  max-width: 55vw;
+}
+
 @media screen and (max-width: 1000px) {
   .cripping-header {
     font-size: 5em;
@@ -263,5 +291,9 @@ model-viewer {
 
   .hide-fullscreen {
     display: block;
+  }
+
+  .banner-logo {
+    max-width: 75vw;
   }
 }
