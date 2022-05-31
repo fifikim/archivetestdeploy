@@ -4,8 +4,6 @@
     <a href="<%= upload_path(upload) %>">
       <% if upload.thumbnail.attached? %>
         <img src="<%= (url_for(upload.thumbnail)) %>" class="top-rounded card-top border-fill">
-      <% else %>
-        <%= image_tag "avatar.png", class: "top-rounded card-top" %>
       <% end %>
     </a>
 
