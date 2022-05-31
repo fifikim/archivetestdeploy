@@ -14,49 +14,20 @@
           <!-- left column: asset/user info -->
           <div class="col-7">
             <div class="text-start">
-              <%= button_to "back", :back, method: :get, class: "btn btn-outline-primary px-3" %>
+              <%= button_to "back", :back, method: :get, class: "btn btn-outline-primary px-3", style: "font-weight: bold" %>
             </div>
             
             <!-- viewer -->
             <div class="my-3 px-0 viewer-img">
-              <!-- file type -->
-              <% if @upload.file.attached? %>
-                <% type = @upload.file.filename.extension.upcase %>
-              <% elsif @upload.thumbnail.attached? %>
-                <% type = @upload.thumbnail.filename.extension.upcase %>
-              <% else %>
-                <% type = 'JPG' %>
-              <% end %>
 
               <!-- render model viewer if file is glb/gltf -->
-              <% if ['GLB', 'GLTF'].include? type %>
-                <%= render 'uploads/3d_viewer', upload: @upload, class: "viewer-img" %>
-              <!-- to do: elsif file is mp4 -->
-              <% elsif type == 'MP4' %>
-                to do: mp4 video player here
-              <!-- else file is jpg/png/gif -->
-              <% elsif ['JPG', 'JPEG', 'GIF', 'PNG'].include? type %>
-                <img src="<%= (url_for(@upload.thumbnail)) %>" class="viewer-img">
-              <% end %>
+              <%= render 'uploads/3d_viewer', upload: @upload %>
 
             </div>
 
             <!-- basic information -->
             <section>
-              <h3 class="text-start mb-0"><%= @upload.name %></h3>
-
-              <!-- object format type -->
-              <p class="text-start mb-0 text-secondary">
-              <% if ['GLB', 'FBX', 'GLTF'].include? type %>
-                <%= type %> Model
-              <% elsif type == 'MP4' %>
-                <%= type %> Video
-              <% elsif ['JPG', 'GIF', 'JPEG', 'PNG'].include? type %>
-                <%= type %> Image
-              <% else %>
-                unknown file type
-              <% end %>
-              </p>
+              <h3 class="text-start mb-2"><strong><%= @upload.name %></strong></h3>
               
               <!-- user info -->
               <div class="d-flex flex-wrap justify-content-between align-items-end">
@@ -66,36 +37,22 @@
                       <% if @upload.user.avatar.attached? %>
                         <img src="<%= (url_for(@upload.user.avatar)) %>" class="avatar-med">
                       <% else %>
-                        <%= image_tag "avatar.png", class: "avatar-med" %>
+                        <%= image_tag "layout/CCG_iconlogo_yellow.png", class: "avatar-med" %>
                       <% end %>
                     </a>
                   </div>
                   <div class="px-3 mb-0">
-                    <p class="mb-0"><%= link_to @upload.user.username, user_path(@upload.user) %></p>
+                    <p class="mb-0"><strong><%= link_to @upload.user.username, user_path(@upload.user) %></strong></p>
                   </div>
                 </div>
-
-                
-              </div>
-
-              <!-- download, save to collection, & report -->
-              <div class="d-flex justify-content-between align-items-end">
-                <div class="d-flex justify-content-start align-items-end"> 
+                <div class=""> 
                   <% if @upload.file.attached? %>
                     <% filesize = (@upload.file.byte_size / 1000000) %>
-                  <% elsif @upload.thumbnail.attached? %>
-                    <% filesize = (@upload.thumbnail.byte_size / 1000000) %>
-                  <% else %>
-                    <% filesize = 0 %>
                   <% end %>
-
                   <a href="#" class="text-start"><p class="mb-0 a-gray"><i class="bi bi-cloud-download cloud-color me-2"></i> <%= link_to 'Download', @upload.file, download: '' %> (<%= filesize %>mb)</p></a>
                 </div>
-                <div class="d-flex justify-content-start align-items-end my-1">
-                  <a href="#" class="text-start"><p class="mb-0 a-gray"><i class="bi bi-folder-plus me-2 text-secondary"></i> add to collection</p></a>
-                </div>
-
               </div>
+
               <hr class="mt-2"/>
             </section>
 
@@ -104,7 +61,7 @@
               
               <!-- description -->
               <div>
-                <p><%= @upload.description %> 
+                <p>description description description description description description <%= @upload.description %> 
               </div>
 
               <!-- upload date -->
@@ -127,16 +84,16 @@
           <!-- right sidebar: links -->
           <div class="col-4 hide-mobile">
             <div class="mt-2">
-              <h5 class="text-start mt-2 px-4"><strong>more by <%= @upload.user.username %></strong></h5>
+              <h3 class="mt-2 px-4"><strong>more by <%= @upload.user.username %></strong></h3>
               <div class="upload-gallery justify-content-around mx-auto">
-                <% Upload.where(user_id: @upload.user).limit(5).each do |upload| %>
+                <% Upload.where(user_id: @upload.user).limit(4).each do |upload| %>
                   <div id="uploads">
                     <%= render 'uploads/upload_horizontal', upload: upload %>
                   </div>
                 <% end %>
               </div>
               <a href="<%= user_path(@upload.user) %>">
-                <p class="my-3"><strong>view all by <%= @upload.user.username %></strong></p>
+                <h3 class="my-3"><strong>view all by <%= @upload.user.username %></strong></h3>
               </a>
             </div>
           </div>

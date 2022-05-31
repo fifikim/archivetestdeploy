@@ -9,23 +9,14 @@
       <% end %>
     </a>
 
-    <div class="card-bottom box-rounded border-fill py-4">
+    <div class="card-bottom box-rounded border-fill my-auto">
       <div>
         <a href="<%= upload_path(upload) %>">
-          <h4 class="mb-1"><%= upload.name %></h4>
+          <h4 class="mt-5 mb-0"><strong><%= upload.name %></strong></h4>
         </a>
-        
-        <div class="d-flex justify-content-around mx-3">
-          <div>
-            <a href="<%= user_path(upload.user) %>">
-              <% if upload.user.avatar.attached? %>
-                <img src="<%= (url_for(upload.user.avatar)) %>" class="avatar-mini">
-              <% end %>
-            </a>
-            <p class="mb-2">by <a href="<%= user_path(upload.user) %>"><%= upload.user.username %></a></p>
-          </div>
+        <div>
+          <p class="fs-5 mb-5"><a href="<%= user_path(upload.user) %>">by <%= upload.user.username %></a></p>
         </div>
-
       </div>
     </div>
 

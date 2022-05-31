@@ -1,7 +1,7 @@
 <% if current_user %>
-  <li class="nav-item dropdown nav-pad">
+  <li class="nav-item dropdown nav-pad mt-2 pb-0">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      <%= current_user.username %>
+      <span class="mb-2"><%= current_user.username %></span>
     </a>
     <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdownMenuLink">
       <li><%= link_to "admin", admin_path, class:"dropdown-item" if current_user.admin? %></li>
@@ -14,7 +14,7 @@
     </ul>
   </li>
 <% else %>
-  <li class="nav-item m-0 nav-pad">
-    <%= link_to "Log_in", new_user_session_path, class: 'nav-link' %>
+  <li class="nav-item m-0 p-0 nav-pad">
+    <%= link_to "log_in", new_user_session_path, class: 'nav-link' %>
   </li>  
 <% end %>

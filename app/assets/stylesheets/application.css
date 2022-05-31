@@ -86,7 +86,6 @@ a:hover {
 .card-top{         
   width: 15rem;
   height: 16rem; 
-  object-position: right 45%;
 }
 
 .card-bottom{
@@ -97,21 +96,41 @@ a:hover {
 }
 
 .horizontal-card-img {
-  height: 7.6rem;
-  width: 7.5rem;
-  border-radius: 50px 0px 0px 50px;
+  height: 10rem;
+  width: 16rem;
   object-fit: cover;
+  background: rgb(162, 255, 230);
+  border-color: rgb(57, 0, 255);
+  border-style: solid;
+  border-width: 3px;
+  box-shadow: 1px 0 40px rgba(57, 0, 255, 0.25), 0 1px 40px rgba(57, 0, 255, 0.25), -1px 0 40px rgba(57, 0, 255, 0.25), 0 -1px 40px rgba(57, 0, 255, 0.25);
+}
+
+.horizontal-bottom {  
+  bottom: 0.5rem;
+  width: 16rem;
+  border-radius: 50px 50px 50px 50px;
+  position: relative;
 }
 
 .about-card-img {
-  max-width: 30rem;
+  margin-left: 2.5rem;
+  width: 25vw;
   border-radius: 50px 0px 0px 50px;
-  object-fit: cover;
+  object-fit: cover
 }
 
-.card-horizontal {
-  width: 15rem;
-  height: 8rem;
+.about-card-text {
+  bottom: 0rem;
+  right: 2.5rem;
+  width: 45vw;
+  border-radius: 50px 50px 50px 50px;
+  position: relative;
+  background: rgb(162, 255, 230);
+  border-color: rgb(57, 0, 255);
+  border-style: solid;
+  border-width: 3px;
+  box-shadow: 1px 0 40px rgba(57, 0, 255, 0.25), 0 1px 40px rgba(57, 0, 255, 0.25), -1px 0 40px rgba(57, 0, 255, 0.25), 0 -1px 40px rgba(57, 0, 255, 0.25);
 }
 
 .box-med {
@@ -132,10 +151,6 @@ a:hover {
   font-size: 5em;
   color: white;
   text-shadow: 2px 0 4px rgba(57, 0, 255), 0 2px 4px rgba(57, 0, 255), -2px 0 4px rgba(57, 0, 255), 0 -2px 4px rgba(57, 0, 255);
-}
-
-.sub-header {
-  font-size: 4em;
 }
 
 .avatar {
@@ -163,7 +178,10 @@ a:hover {
 }
 
 .avatar-med {
-  border-radius: 10%;
+  border-color: rgba(57, 0, 255);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
   height: 3rem;
   width: 3rem;
   object-fit: cover;
@@ -279,10 +297,6 @@ model-viewer {
   
   .cripping-header2 {
     font-size: 5em;
-  }
-
-  .sub-header {
-    font-size: 4em;
   }
   
   .hide-mobile {

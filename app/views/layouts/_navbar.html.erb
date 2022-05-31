@@ -1,14 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light m-4">
+<nav class="navbar navbar-expand-lg navbar-light mt-4 mx-5">
   <a href="<%= root_path %>">
-    <%= image_tag "layout/CCG_iconlogo_yellow.png", class: 'yellow-shadow', style: 'width: 8vw' %>
+    <%= image_tag "layout/CCG_iconlogo_yellow.png", class: 'yellow-shadow', style: 'width: 8vw', alt: 'Cripping CG Yellow Logo' %>
   </a>
   
   <div class="container-fluid box-rounded border-fill py-2 mx-3">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-lg-0 h6 font-weight-bold">
+    <div class="collapse navbar-collapse my-auto justify-content-between" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-lg-0 h6 font-weight-bold">
         <li class="nav-item nav-pad">
           <%= link_to "archive", archive_path, class: 'nav-link' %>
         </li>
@@ -18,13 +18,15 @@
         <li class="nav-item nav-pad">
           <%= link_to "resource_web", resources_path, class: 'nav-link' %>
         </li>
-       <li class="nav-item nav-pad">
+        <li class="nav-item nav-pad">
           <%= link_to "contact_us", new_contact_path, class: 'nav-link' %>
         </li> 
       </ul>
-      <ul class="navbar-nav">
-        <%= render 'layouts/notifications' %>
-        <%= render 'user/session_manager' %>
+      <ul class='navbar-nav mx-auto mb-lg-0 h6 font-weight-bold'>
+        <li class="nav-item nav-pad">
+          <%= render 'layouts/notifications' %>
+          <%= render 'user/session_manager' %>
+        </li>
       </ul>
     </div>
   </div>
