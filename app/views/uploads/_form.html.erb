@@ -12,27 +12,27 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <%= form.label :name, style: "display: block; font-weight: bold;" %>
     <%= form.text_field :name, class: "border-fill box-rounded bg-white", style: "width: 50vw; max-width: 60vw; padding: 0px 10px;" %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
+    <%= form.label :description, style: "display: block; font-weight: bold;" %>
     <%= form.text_area :description, :rows => 5, class: "border-fill box-rounded bg-white", style: "width: 50vw; max-width: 60vw; padding: 20px 20px;" %>
   </div>
 
   <div>
-    <%= form.label :tag_list, style: "display: block" %>
+    <%= form.label :tag_list, style: "display: block; font-weight: bold;" %>
     <%= form.text_field :tag_list, class: "border-fill box-rounded bg-white", style: "width: 50vw; max-width: 60vw; padding: 0px 20px;" %>
   </div>
 
   <div>
-    <%= form.label :thumbnail, style: "display: block" %>
+    <%= form.label :thumbnail, style: "display: block; font-weight: bold;" %>
     <%= form.file_field :thumbnail %>
   </div>
 
   <div>
-    <%= form.label :file, style: "display: block" %>
+    <%= form.label :file, style: "display: block; font-weight: bold;" %>
     <%= form.file_field :file %>
   </div>
 

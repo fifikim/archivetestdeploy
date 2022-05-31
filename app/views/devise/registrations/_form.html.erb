@@ -2,13 +2,13 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
+    <%= f.label :username, style: "font-weight: bold" %><br />
+    <%= f.text_field :username, style: "width: 50vw; max-width: 60vw;" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email, style: "font-weight: bold" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width: 50vw; max-width: 60vw;" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
