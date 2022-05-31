@@ -22,6 +22,13 @@ Rails.application.routes.draw do
   resources :uploads do
     resources :likes
   end
+
+  resources :uploads do
+    member do
+      patch :update_status
+    end
+  end
+  
   
   get 'manage', to: 'uploads#manage'
 

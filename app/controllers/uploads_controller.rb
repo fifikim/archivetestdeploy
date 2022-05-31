@@ -46,6 +46,12 @@ class UploadsController < ApplicationController
     end
   end
 
+  def update_status 
+    @upload = Upload.find(params[:id])
+    @upload.update(status: params[:status])
+    redirect_to @upload, notice: "Status changed to: #{@upload.status}"
+  end 
+
   # PATCH/PUT /uploads/1 or /uploads/1.json
   def update
     respond_to do |format|
@@ -85,5 +91,13 @@ class UploadsController < ApplicationController
         notifications_to_mark_as_read = @upload.notifications_as_upload.where(recipient: current_user)
         notifications_to_mark_as_read.update_all(read_at: Time.zone.now)
       end
+    end
+
+    def published?
+      params[:commit]  == "Create Upload"
+    end
+
+    def unpublish?
+      params[:commit]  == "Unpublish"
     end
 end

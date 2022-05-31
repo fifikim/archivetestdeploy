@@ -41,7 +41,19 @@
     <%= form.file_field :file %>
   </div>
 
+    <div>
+              <% Upload::STATUSES.each do |status| %>
+                <%= link_to status, update_status_upload_path(@upload, status: status), method: :patch %>
+              <% end %>
+              </div>
+
   <div>
-    <%= form.submit "Create Upload", :class => "btn-primary btn-rounded", :style => "padding: 0px 20px;" %>
+    <% if :published? %>
+      <%= form.submit "Update", :class => "btn-primary btn-rounded", :style => "padding: 0px 20px;" %>
+      <%= form.submit "Unpublish", :class => "btn-primary btn-rounded", :style => "padding: 0px 20px;" %>
+    <% else %>
+      <%= form.submit "Create Upload", :class => "btn-primary btn-rounded", :style => "padding: 0px 20px;" %>
+      <%= form.submit "Draft Upload", :class => "btn-primary btn-rounded", :style => "padding: 0px 20px;" %>
+    <% end %>
   </div>
 <% end %>

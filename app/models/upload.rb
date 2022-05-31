@@ -13,6 +13,9 @@ class Upload < ApplicationRecord
   has_noticed_notifications model_name: 'Notification'
   has_many :notifications, through: :user, dependent: :destroy
 
+  validates :status, presence: true
+  STATUSES = [:draft, :published, :unpublished]
+
   def tag_list
     self.tags.collect do |tag|
       tag.name
