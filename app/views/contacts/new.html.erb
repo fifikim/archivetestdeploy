@@ -9,17 +9,19 @@
       <span class="cripping-header2">contact_us</span>
 
       <div class="p-5 box-rounded border-fill text-start mx-auto", style="max-width: 90%;" >
-        <p class="fs-5"><strong>Please get in touch if you...</strong></p>
-        <ul>
-          <li>are interested in learning more about the project</li>
-          <li>would like to contribute to the archive</li>
-          <li>would like to submit a proposal to use assets from the archive</li>
-          <li>have any questions or feedback for us</li>
-        </ul>
-        <p> 💜 💜 💜 </p>
+        <div class="text-start">
+          <p class="fs-5"><strong>Please get in touch if you...</strong></p>
+          <ul>
+            <li>are interested in learning more about the project</li>
+            <li>would like to contribute to the archive</li>
+            <li>would like to submit a proposal to use assets from the archive</li>
+            <li>have any questions or feedback for us</li>
+          </ul>
+          <p> 💜 💜 💜 </p>
 
-        <br/>
-        <%= render "form", contact: @contact %>
+          <br/>
+          <%= render "form", contact: @contact %>
+        </div>
       </div>
     </div>
   </main>
