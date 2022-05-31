@@ -27,6 +27,11 @@
   </div>
 
   <div>
+    <%= form.check_box :downloadable %>
+    <%= form.label :downloadable,'Downloadable?', class:"form-check-label" %>
+  </div>
+
+  <div>
     <%= form.label :thumbnail, style: "display: block" %>
     <%= form.file_field :thumbnail %>
   </div>
