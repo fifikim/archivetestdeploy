@@ -53,7 +53,7 @@
                   <% if @upload.downloadable %>
                     <a href="#" class="text-start"><p class="fs-5 mb-0 a-gray"><i class="bi bi-cloud-download cloud-color fs-4 me-2"></i> <%= link_to 'Download', @upload.file, download: '' %> (<%= filesize %>mb)</p></a>
                   <% else %>
-                    <a href="#" class="text-start"><p class="fs-5 mb-0 a-gray"><i class="bi bi-cloud-download cloud-color fs-4 me-2"></i> request download (<%= filesize %>mb)</p></a>
+                    <a href="<%= new_contact_path %>" class="text-start"><p class="fs-5 mb-0 a-gray"><i class="bi bi-cloud-download cloud-color fs-4 me-2"></i> request download (<%= filesize %>mb)</p></a>
                   <% end %>
                 </div>
               </div>
