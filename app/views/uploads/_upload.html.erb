@@ -1,6 +1,6 @@
 <div id="<%= dom_id upload %>">
   
-  <div class="text-center">
+  <div class="text-center mx-4">
     <a href="<%= upload_path(upload) %>">
       <% if upload.thumbnail.attached? %>
         <img src="<%= (url_for(upload.thumbnail)) %>" class="top-rounded card-top border-fill">
