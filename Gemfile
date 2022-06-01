@@ -81,7 +81,10 @@ gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano-passenger'
 gem 'capistrano-rbenv'
+gem 'capistrano-rails-collection'
 
 gem 'net-ssh', '7.0.0.beta1'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
+
+gem 'rack-cors'

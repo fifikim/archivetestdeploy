@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.17.0"
 
-set :branch, 'deploy'
+set :branch, 'main'
 
 set :application, "archivetestdeploy"
 set :repo_url, "https://github.com/fifikim/archivetestdeploy.git"
