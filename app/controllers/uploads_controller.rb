@@ -77,7 +77,7 @@ class UploadsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def upload_params
-      params.require(:upload).permit(:name, :description, :thumbnail, :file, :tag_list)
+      params.require(:upload).permit(:name, :description, :thumbnail, :file, :tag_list, :downloadable)
     end
 
     def mark_notifications_as_read
