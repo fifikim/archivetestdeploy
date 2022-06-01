@@ -13,7 +13,7 @@
             <% if @user.avatar.attached? %>
               <img src="<%= (url_for(@user.avatar)) %>" class="avatar">
             <% else %>
-              <%= image_tag "layout/CCG_iconlogo_yellow", class: "avatar" %>
+              <img src="<%= (url_for("layout/CCG_iconlogo_yellow")) %>" class="avatar">
             <% end %>
 
             <div class="my-3">
