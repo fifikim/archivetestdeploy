@@ -103,7 +103,7 @@
             <div class="mt-2">
               <h3 class="mt-2 px-4"><strong>more by <%= @upload.user.username %></strong></h3>
               <div class="upload-gallery justify-content-around mx-auto">
-                <% Upload.where(user_id: @upload.user).limit(4).each do |upload| %>
+                <% Upload.where(user_id: @upload.user).limit(5).each do |upload| %>
                   <% if upload.id != 42 && upload.id != 38 %>
                     <div id="uploads">
                       <%= render 'uploads/upload_horizontal', upload: upload %>
