@@ -66,12 +66,12 @@
               
               <!-- description -->
               <div>
-                <p><%= @upload.description %> 
+                <p class="fs-5"><%= @upload.description %> 
               </div>
 
               <!-- upload date -->
               <div>
-                <p class="text-secondary mb-0"><i class="bi bi-clock pe-3"></i>uploaded <%= time_ago_in_words(@upload.created_at) %> ago</p>
+                <p class="text-secondary mb-1"><i class="bi bi-clock pe-3"></i>uploaded <%= time_ago_in_words(@upload.created_at) %> ago</p>
               </div>
 
               <!-- tags -->
