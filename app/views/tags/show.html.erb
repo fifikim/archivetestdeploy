@@ -1,14 +1,25 @@
-<div class="container">
-  <div class="mt-5 p-5 box-rounded border-fill bg-white">
-    <h1 class="page-header">Uploads Tagged with <%= @tag.name %></h1>
-    <%= render 'search/form' %>
-    <div class="upload-gallery justify-content-around my-5 mx-auto">
-      <% @tag.uploads.each do |upload| %>
-        <div id="uploads">
-          <%= render upload %>
+<body class="bg-light">
+  <header>
+    <%= render 'layouts/navbar' %>
+  </header>
+  <main>
+
+    <div class="container text-center">
+      <div>
+        <span class="cripping-header">tagged with "<%= @tag.name %>"</span>
+        <span class="cripping-header2">tagged with "<%= @tag.name %>"</span>
+      </div>
+      <div class="mt-5 box-rounded border-fill bg-white">
+        <div class="upload-gallery justify-content-around my-5 mx-auto">
+          <% @tag.uploads.each do |upload| %>
+            <div id="uploads">
+              <%= render upload %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+        
+      </div>
     </div>
-    
-  </div>
-</div>
+  </main>
+  <footer class="footer">©2022 CRIPPING_CG</footer>
+</body>
