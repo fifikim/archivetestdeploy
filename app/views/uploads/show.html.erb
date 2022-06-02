@@ -21,7 +21,12 @@
             <div class="my-3 px-0 viewer-img">
 
               <!-- render model viewer if file is glb/gltf -->
-              <%= render 'uploads/3d_viewer', upload: @upload %>
+              <% if ['glb', 'gltf'].include? @upload.file.filename.extension %>
+                <%= render 'uploads/3d_viewer', upload: @upload %>
+              <!-- render videojs viewer if file is mp4 -->
+              <% elsif @upload.file.filename.extension == 'mp4' %>
+                <%= render 'uploads/videojs_viewer', upload: @upload %>
+              <% end %>
 
             </div>
 

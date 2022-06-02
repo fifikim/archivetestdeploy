@@ -1,0 +1,11 @@
+<video
+id="my-video"
+class="video-js"
+controls
+
+preload="auto"
+poster="<%= (url_for(upload.thumbnail)) %>"
+data-setup='{"fluid": true}'
+>
+<source src="<%= (url_for(upload.file)) %>" type="video/mp4" />
+</video>
