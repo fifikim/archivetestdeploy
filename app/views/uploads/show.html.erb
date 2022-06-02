@@ -21,7 +21,7 @@
             <div class="my-3 px-0 viewer-img">
 
               <% if !@upload.file.attached? %>
-                <img src="<%= (url_for(@upload.thumbnail)) %>" class="viewer-img">
+                <img src="<%= (url_for(@upload.thumbnail)) %>" class="viewer-thumbnail">
               <% end %>
 
               <!-- render model viewer if file is glb/gltf -->
@@ -32,7 +32,7 @@
                 <%= render 'uploads/videojs_viewer', upload: @upload %>
               <!-- else file is jpg/png/gif -->
               <% else %>
-                <img src="<%= (url_for(@upload.thumbnail)) %>" class="viewer-img">
+                <img src="<%= (url_for(@upload.thumbnail)) %>" class="viewer-thumbnail">
               <% end %>
 
             </div>
