@@ -4,6 +4,8 @@
     id="reveal"
     alt="<%= upload.description %>" 
     src="<%= (url_for(upload.file)) %>" 
+    poster="<%= (url_for(upload.thumbnail)) %>" 
+    seamless-poster
     shadow-intensity="1" 
     camera-controls enable-pan>
   </model-viewer>
