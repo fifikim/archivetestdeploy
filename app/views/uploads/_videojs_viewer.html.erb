@@ -2,10 +2,10 @@
 id="my-video"
 class="video-js"
 controls
-
+height= "auto"
+width="auto"
 preload="auto"
-poster="<%= (url_for(upload.thumbnail)) %>"
-data-setup='{"fluid": true}'
+data-setup='{"fill": true}'
 >
 <source src="<%= (url_for(upload.file)) %>" type="video/mp4" />
 </video>
