@@ -20,6 +20,10 @@
             <!-- viewer -->
             <div class="my-3 px-0 viewer-img">
 
+              <% if !@upload.file.attached? %>
+                <img src="<%= (url_for(@upload.thumbnail)) %>" class="viewer-img">
+              <% end %>
+
               <!-- render model viewer if file is glb/gltf -->
               <% if ['glb', 'gltf'].include? @upload.file.filename.extension %>
                 <%= render 'uploads/3d_viewer', upload: @upload %>
