@@ -12,36 +12,36 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block; font-weight: bold;" %>
+    <%= form.label :name, style: "display: block; font-weight: bold; margin-top: 2vw;" %>
     <%= form.text_field :name, class: "border-fill box-rounded bg-white", style: "width: 50vw; max-width: 60vw; padding: 0px 10px;" %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block; font-weight: bold;" %>
+    <%= form.label :description, style: "display: block; font-weight: bold; margin-top: 2vw;" %>
     <%= form.text_area :description, :rows => 5, class: "border-fill box-rounded bg-white", style: "width: 50vw; max-width: 60vw; padding: 20px 20px;" %>
   </div>
 
   <div>
-    <%= form.label :tag_list, style: "display: block; font-weight: bold;" %>
+    <%= form.label :tag_list, style: "display: block; font-weight: bold; margin-top: 2vw;" %>
     <%= form.text_field :tag_list, class: "border-fill box-rounded bg-white", style: "width: 50vw; max-width: 60vw; padding: 0px 20px;" %>
   </div>
 
   <div>
     <%= form.check_box :downloadable %>
-    <%= form.label :downloadable,'Downloadable?', class:"form-check-label" %>
+    <%= form.label :downloadable,'Downloadable?', class:"form-check-label", style: "font-weight: bold; margin-top: 2vw;" %>
   </div>
 
   <div>
-    <%= form.label :thumbnail, style: "display: block" %>
+    <%= form.label :thumbnail, style: "display: block; font-weight: bold; margin-top: 2vw;" %>
     <%= form.file_field :thumbnail %>
   </div>
 
   <div>
-    <%= form.label :file, style: "display: block; font-weight: bold;" %>
+    <%= form.label :file, style: "display: block; font-weight: bold; margin-top: 2vw;" %>
     <%= form.file_field :file %>
   </div>
 
   <div>
-    <%= form.submit "Create Upload", :class => "btn-primary btn-rounded", :style => "padding: 0px 20px;" %>
+    <%= form.submit "Create Upload", :class => "btn-primary btn-rounded", :style => "padding: 0px 20px; margin-top: 2vw;" %>
   </div>
 <% end %>
