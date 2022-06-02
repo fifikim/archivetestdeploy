@@ -15,9 +15,11 @@
         <div class="upload-gallery justify-content-around mx-auto">
           <% @uploads.shuffle.each do |upload| %>
             <% if upload.user.username != 'admin' %>
-              <div id="uploads">
-                <%= render upload %>
-              </div>
+              <% if upload.id != 42 && upload.id != 38 %>
+                <div id="uploads">
+                  <%= render upload %>
+                </div>
+              <% end %>
             <% end %>
           <% end %>
         </div>
