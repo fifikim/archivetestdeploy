@@ -26,6 +26,9 @@
               <!-- render videojs viewer if file is mp4 -->
               <% elsif @upload.file.filename.extension == 'mp4' %>
                 <%= render 'uploads/videojs_viewer', upload: @upload %>
+              <!-- else file is jpg/png/gif -->
+              <% elsif ['JPG', 'JPEG', 'GIF', 'PNG'].include? @upload.file.filename.extension %>
+                <img src="<%= (url_for(@upload.thumbnail)) %>" class="viewer-img">
               <% end %>
 
             </div>
