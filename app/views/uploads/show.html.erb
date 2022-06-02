@@ -31,7 +31,7 @@
               <% elsif @upload.file.filename.extension == 'mp4' %>
                 <%= render 'uploads/videojs_viewer', upload: @upload %>
               <!-- else file is jpg/png/gif -->
-              <% elsif ['JPG', 'JPEG', 'GIF', 'PNG'].include? @upload.file.filename.extension %>
+              <% else %>
                 <img src="<%= (url_for(@upload.thumbnail)) %>" class="viewer-img">
               <% end %>
 
