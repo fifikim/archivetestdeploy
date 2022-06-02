@@ -16,9 +16,11 @@
       <div class="mt-5">
         <div class="upload-gallery justify-content-around my-5 mx-auto">
           <% @tag.uploads.each do |upload| %>
-            <div id="uploads">
-              <%= render upload %>
-            </div>
+            <% if upload.id != 42 && upload.id != 38 %>
+              <div id="uploads">
+                <%= render upload %>
+              </div>
+            <% end %>
           <% end %>
         </div>
         
