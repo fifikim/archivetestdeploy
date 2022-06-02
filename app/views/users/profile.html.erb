@@ -33,9 +33,11 @@
         <hr><br/>
         <div class="upload-gallery justify-content-around my-3 mx-auto">
           <% Upload.where(user_id: @user).each do |upload| %>
-            <div id="uploads">
-              <%= render upload %>
-            </div>
+            <% if upload.id != 42 && upload.id != 38 %>
+              <div id="uploads">
+                <%= render upload %>
+              </div>
+            <% end %>
           <% end %>
         </div>
 
