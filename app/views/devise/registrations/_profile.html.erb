@@ -2,32 +2,32 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :username, style: "font-weight: bold" %><br />
-    <%= f.text_field :username, class: "border-fill box-rounded bg-white", style: "width: 50vw; max-width: 60vw; margin: 20px; padding: 0px 20px;" %>
+    <%= f.label :username, style: "font-weight: bold;" %><br />
+    <%= f.text_field :username, class: "border-fill box-rounded bg-white", style: "width: 50vw; max-width: 60vw; padding: 0px 20px;" %>
   </div>
 
   <div class="field">
-    <%= f.label :avatar, style: "font-weight: bold" %><br />
+    <%= f.label :avatar, style: "font-weight: bold; margin-top: 2vw;" %><br />
     <%= f.file_field :avatar %>
   </div>
 
   <div class="field">
-    <%= f.label :tagline, style: "font-weight: bold" %><br />
-    <%= f.text_field :tagline, class: "border-fill box-rounded bg-white", style: "width: 50vw; max-width: 60vw; margin: 20px; padding: 0px 20px;" %>
+    <%= f.label :tagline, style: "font-weight: bold; margin-top: 2vw;" %><br />
+    <%= f.text_field :tagline, class: "border-fill box-rounded bg-white", style: "width: 50vw; max-width: 60vw; padding: 0px 20px;" %>
   </div>
 
   <div class="field">
-    <%= f.label :bio, style: "font-weight: bold" %><br />
+    <%= f.label :bio, style: "font-weight: bold; margin-top: 2vw;" %><br />
     <%= f.text_area :bio, :rows => 10, class: "border-fill box-rounded bg-white", style: "width: 50vw; max-width: 60vw; padding: 20px 20px;"  %>
   </div>
 
   <div class="field">
-    <%= f.label :website, style: "font-weight: bold" %><br />
-    <%= f.text_field :website, class: "border-fill box-rounded bg-white", style: "width: 50vw; max-width: 60vw; margin: 20px; padding: 0px 20px;" %>
+    <%= f.label :website, style: "font-weight: bold; margin-top: 2vw;" %><br />
+    <%= f.text_field :website, class: "border-fill box-rounded bg-white", style: "width: 50vw; max-width: 60vw; padding: 0px 20px;" %>
   </div>
 
 
   <div class="actions">
-    <%= f.submit "update", :class => "btn-primary btn-rounded", :style => "padding: 0px 20px;" %>
+    <%= f.submit "update", :class => "btn-primary btn-rounded", :style => "padding: 0px 20px; margin-top: 2vw;" %>
   </div>
 <% end %>
