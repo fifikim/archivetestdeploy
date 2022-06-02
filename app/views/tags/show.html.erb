@@ -6,10 +6,14 @@
 
     <div class="container text-center">
       <div>
-        <span class="cripping-header">tagged with "<%= @tag.name %>"</span>
-        <span class="cripping-header2">tagged with "<%= @tag.name %>"</span>
+        <span class="cripping-header">tagged_with</span>
+        <span class="cripping-header2">tagged_with</span>
       </div>
-      <div class="mt-5 box-rounded border-fill bg-white">
+      <div>
+        <span class="cripping-header">"<%= @tag.name %>"</span>
+        <span class="cripping-header2">"<%= @tag.name %>"</span>
+      </div>
+      <div class="mt-5">
         <div class="upload-gallery justify-content-around my-5 mx-auto">
           <% @tag.uploads.each do |upload| %>
             <div id="uploads">
