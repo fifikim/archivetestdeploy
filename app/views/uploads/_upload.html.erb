@@ -1,23 +1,22 @@
 <div id="<%= dom_id upload %>">
-  <% if upload.user.username != 'admin' %>
-    <div class="text-center mx-4">
-      <a href="<%= upload_path(upload) %>">
-        <% if upload.thumbnail.attached? %>
-          <img src="<%= (url_for(upload.thumbnail)) %>" class="top-rounded card-top border-fill">
-        <% end %>
-      </a>
+  
+  <div class="text-center mx-4">
+    <a href="<%= upload_path(upload) %>">
+      <% if upload.thumbnail.attached? %>
+        <img src="<%= (url_for(upload.thumbnail)) %>" class="top-rounded card-top border-fill">
+      <% end %>
+    </a>
 
-      <div class="card-bottom box-rounded border-fill my-auto">
+    <div class="card-bottom box-rounded border-fill my-auto">
+      <div>
+        <a href="<%= upload_path(upload) %>">
+          <h4 class="mt-5 mb-0"><strong><%= upload.name %></strong></h4>
+        </a>
         <div>
-          <a href="<%= upload_path(upload) %>">
-            <h4 class="mt-5 mb-0"><strong><%= upload.name %></strong></h4>
-          </a>
-          <div>
-            <p class="fs-5 mb-5"><a href="<%= user_path(upload.user) %>">by <%= upload.user.username %></a></p>
-          </div>
+          <p class="fs-5 mb-5"><a href="<%= user_path(upload.user) %>">by <%= upload.user.username %></a></p>
         </div>
       </div>
-
     </div>
+
   </div>
 </div>
